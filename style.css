@@ -201,7 +201,7 @@ ol > li > ul > li:hover > a {
 
 	/*---- Kwadrat z boku ;) ----*/
 aside{
-	background-color: yellow;
+	background-color: red;
 	width: 270px;
 	float: right;
 	padding: 20px;
