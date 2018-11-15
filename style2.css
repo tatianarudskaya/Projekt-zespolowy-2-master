@@ -25,7 +25,7 @@
 #naglowek {
     background: url(Obrazki/logo.jpg) no-repeat;
 	background-position:full;
-	width:960px; 
+	width:100%; 
 	height:100px;
   }
   
@@ -205,11 +205,21 @@ ol > li > ul > li:hover > a {
 	margin-top: inherit;
 	vertical-align: top;
 	clear:both;
+	width:100%; 
+}
+
+	#picture4 {
+	float: right;
+	margin-top: inherit;
+	vertical-align: top;
+	clear:both;
+	width:100%; 
+	height:100%;
 }
 
 	/*---- Kwadrat z boku ;) ----*/
 	#aside{
-	background-color: none;
+	background-color: red;
 	width: 270px;
 	float: right;
 	padding: 20px;

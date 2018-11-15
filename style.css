@@ -25,7 +25,8 @@
 #naglowek {
     background: url(Obrazki/logo.jpg) no-repeat;
 	background-position:full;
-	width:960px; 
+/* width:960px; */
+	width:100%;
 	height:100px;
   }
   
