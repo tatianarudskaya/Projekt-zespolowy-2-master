@@ -1,5 +1,5 @@
 # Projekt-zespolowy-2-master
-
+/*
 <?php
 	/*sprawdzenie wypełnienia wszystkich pól*/
 	}elseif(!empty($_POST['imienazwisko']) && !empty($_POST['email']) && !empty($_POST['trescwiadomosci'])){
@@ -26,4 +26,4 @@
 	echo "<span style=\"color: #00D800; font-weight: bold; \">Dziękujemy, formularz został wysłany.</span>";
 	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Wprowadzony adres E-Mail jest niepoprawny!!!</span>"; }
 	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Cofnij i wypełnij wszystkie pola formularza!!!</span>"; }
-	?>
+	?>*/
