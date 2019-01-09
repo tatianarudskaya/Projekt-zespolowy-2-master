@@ -65,7 +65,9 @@
 	width: 100%;
 	background: url(Obrazki/menu_bg_v3.png) no-repeat left top #dee9f5; 
 }
-
+ul > li{
+	padding-left:2px;
+}
 ul > li > a {
 	margin: 1px;
 	height: auto;
