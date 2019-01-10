@@ -4,7 +4,7 @@
 	
 	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
 	{
-		header('Location: index.html');
+		header('Location: index.php');
 		exit();
 	}
 
@@ -52,25 +52,28 @@
 			<div class="collapse navbar-collapse" id="mainmenu">
 				<ul class="navbar-nav mr-auto">
 				<!-- Rozwijająca się część -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Rozwija się </a>
-						<div class="dropdown-menu" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#"> Coś 1 </a>
-							<a class="dropdown-item" href="#"> Coś 2 </a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#"> Coś 3 </a>
-							<a class="dropdown-item" href="#"> Coś 4 </a>
-						</div>
-					</li>
+					
 					<!-- zwykła Reszta menu -->
 					<li class="nav-item"> <a class="nav-link" href="training.html"> Trening </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="articles.html"> Artykuły </a> </li>
-				
-					<li class="nav-item"> <a class="nav-link" href="contact.html"> Kontakt </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="guestbook.html"> Recenzje </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="register.php" > Rejestracja </a> </li>
+					
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Konto </a>
+						<div class="dropdown-menu" aria-labelledby="submenu">
+							<a class="dropdown-item" href="regulamin.html"> Regulamin </a>
+							<a class="dropdown-item" href="register.php"> Załóż Konto </a>
+							<a class="dropdown-item" href="log.php"> Zaloguj się </a>
+							<!-- <div class="dropdown-divider"></div>-->
+							
+							<a class="dropdown-item" href="#"> Coś 4 </a>
+						</div>
+					</li>
 				</ul>
 			
+				
 			</div>
 		</nav>
 	

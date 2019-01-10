@@ -1,3 +1,13 @@
+<?php
+session_start(); // Right at the top of your script
+
+if ($_SESSION['zalogowany']==false)
+	{
+		$_SESSION['zalogowany']=false;
+	}
+
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
@@ -23,14 +33,12 @@
   <body onload="odliczanie();">
   <div class="containet"> 
 	
-    <!-- <div id="naglowek">
-		<a class="h"> Strona <span> - jakiś napis</span></a>
-	</div> -->
+   
   	<header>
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
 		<!-- Logo -->
-			<a class="navbar-brand" href="index.html"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
+			<a class="navbar-brand" href="index.php"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
 		<!-- Przycisk menu w małym oknie -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
@@ -39,26 +47,40 @@
 			<div class="collapse navbar-collapse" id="mainmenu">
 				<ul class="navbar-nav mr-auto">
 				<!-- Rozwijająca się część -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Rozwija się </a>
-						<div class="dropdown-menu" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#"> Coś 1 </a>
-							<a class="dropdown-item" href="#"> Coś 2 </a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#"> Coś 3 </a>
-							<a class="dropdown-item" href="#"> Coś 4 </a>
-						</div>
-					</li>
+					
 					<!-- zwykła Reszta menu -->
-					<li class="nav-item"> <a class="nav-link" href="training.html"> Trening </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="articles.html"> Artykuły </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="guestbook.html"> Recenzje </a> </li>
-					
-					<li class="nav-item"> <a class="nav-link" href="register.php" > Rejestracja </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="log.php"> Logowanie </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>	
+					<!--
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Konto </a>
+						<div class="dropdown-menu" aria-labelledby="submenu">
+							<a class="dropdown-item" href="regulamin.html"> Regulamin </a>
+							<a class="dropdown-item" href="register.php"> Załóż Konto </a>
+							<a class="dropdown-item" href="log.php"> Zaloguj się </a>
+							 <div class="dropdown-divider"></div>
+							
+							<a class="dropdown-item" href="#"> Coś 4 </a>
+						</div>
+					</li>-->
 				</ul>
-			
+			<li class='active' style='float:right;'>
+				  <?php 
+  if($_SESSION['zalogowany']==true)
+    { 
+      echo $_SESSION["user"];
+	  echo ", ";
+      echo '<a href="logout.php"><span>Logout</span></a></li>';
+    }
+  elseif($_SESSION['zalogowany']==false)
+    {
+      echo '<a href="log.php"><span>Login</span></a></li>';
+    }
+  ?>
 				
 			</div>
 		</nav>
@@ -70,8 +92,8 @@
 		<h2>Strona Główna</h2><br>
 			<section>Wersja alfa.v3 strony  </section>
 		
-		<div id="zegar"></div> 
-		<p> ^/\^ Pr0 zegar :)</p>
+		 
+	
 		<div id="picture">
 			<img src="Obrazki\women.jpg" alt="crx">
 		</div>
@@ -124,7 +146,9 @@
 		
  </main>
 	<div id="stopka">
-	<p>Autorzy projektu: Łukasz Zieliński i Tatiana Rudskaya</p>
+	
+	<p>Autorzy projektu: Łukasz Zieliński i Tatiana Rudskaya  </p>
+	
 </div>
 </div>
 <!-- Przyciski do przesuwania w gólre i w dół strony --> 
