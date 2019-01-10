@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-   <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
@@ -16,9 +16,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/button.js"></script>
+	<script src="text/javascript"  src="js/bootstrap.bundle.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
-  <title>Training</title>
-</head>
+  <title>Contact</title>
+  </head>
 
 <body onload="odliczanie();">
   <div class="containet"> 
@@ -31,7 +32,7 @@
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
 		<!-- Logo -->
-			<a class="navbar-brand" href="index.html"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> B17</a>
+			<a class="navbar-brand" href="index.html"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
 		<!-- Przycisk menu w małym oknie -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
@@ -67,57 +68,58 @@
 	 </header>
 	<main>
 	<div id="srodek">
-		<br>		
-		<div id="aside">
-			<div id="picture">
-				<img src="Obrazki\kursy.jpg" alt="kursy">
-			</div>
+		<h2>Skontaktuj się z nami</h2><br>
+					
+		<div id="picture">
+			<img src="Obrazki\sofa.jpg" alt="doktor">
 		</div>
-				
-			<h2>Psychologia w każdym domu</h2>
-				
 			<p> Tel. +48697700000 Marina
-			<br><br>Możesz uzyskać dodatkowe porady, dotyczące wyboru odpowiedniego kursu szkoleniowego.
+			<br><br><b>Zwonimy!</b><br> Zadzwoń już dziś i uzyskaj zniżkę!
 			</p>
 		 
-		<br><br><p><b>«Гештальт-Подход, Начало»</b></p>
-			<p>Жить Жизнь «Здесь и Сейчас», не откладывая её «на потом». Формат группы: терапевтически-обучающий.
-			<a href="/article/a/">kliknij link, aby kontynuować czytanie
-			</a>
+		<p><br><br><b>Adres</b><br></p>
+			<p>Miasto Brest 
+			<br>ulica Zielona 55
 			</p>
-	
-		<p><b>Женская Группа «Психология Отношений»</b></p>
-			<p>Наш второй WorkShop на котором мы с Вами запустим волшебные изменения Вашей жизни. Живи ярко и комфортно!
-			<a href="/article/b/">kliknij link, aby kontynuować czytanie
-			</a>
-			</p>
-			
-			<p><b>Психология Отношений</b></p>
-			<p>Улучшение взаимоотношений с партнером, мужем. Развитие и принятие своей женственности. Понимание своих желаний. Любовь к себе. Счастливые отношения. Всё это и многое другое будет в нашем курсе.
-			<a href="/article/c/">kliknij link, aby kontynuować czytanie
-			</a>
-			</p>
-			
-			<p><b>Деньги и отношения</b></p>
-			<p>В каких отношениях мы находимся с деньгами? Любят ли нас деньги и любим ли мы их?Хотим или боимся их меть? Всё это Вы узнаете на моём тренинге.
-			<a href="/article/d/">kliknij link, aby kontynuować czytanie
-			</a>
-			</p>
-			
-			<p><b>Женская интересная группа</b></p>
-			<p>Быть женщиной и ощущать женственность важно. Мой тренинг о нас - женщинах. Мы будем работать с картами и арт-терапевтическими методиками. Будем принимать свою женскую часть и писать свою собственную сказку!...
-			<a href="/article/e/">kliknij link, aby kontynuować czytanie
-			</a>
-			</p>
-			
-			<p><b>Трансформационная игра «Дорога к...»</b></p>
-			<p>С использованием магических (метафорически-ассоциативных) карт, игрового поля и кубика. Мы найдём решение для вашей проблемы
-			<a href="/article/f/">kliknij link, aby kontynuować czytanie
-			</a>
-			</p>
-			
-	</div>
-  </main>
+			<p><b> Masz jakieś pytania? Napisz:</b> </p>
+<?php
+	if(empty($_POST['submit'])){
+	?>
+	<form action="contact.php" method="post"> <!--nazwa strony na której znajduje się formularz-->
+	Imię i Nazwisko:<br />
+	<input type="text" name="imienazwisko" style="width:300px;"/><br />
+	E-Mail:<br />
+	<input type="text" name="email" style="width:300px;"/><br />
+	Treść wiadomości:<br />
+	<textarea name="trescwiadomosci" cols="30" rows="6" style="width:300px;"></textarea><br />
+	<input type="submit" name="submit" value="Wyślij formularz"/> 
+	<input type="reset" value="Wyczyść"/>
+	</form>
+<?php
+	/*sprawdzenie wypełnienia wszystkich pól*/
+	}elseif(!empty($_POST['imienazwisko']) && !empty($_POST['email']) && !empty($_POST['trescwiadomosci'])){
+	/* Funkcja sprawdzaj±ca poprawno¶ć E-Maila */
+	function SprawdzEmail($email) {
+	if (!eregi("^[_.0-9a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$" , $email)){
+	return false;
+	}
+	return true;
+	}
+	if(SprawdzEmail($_POST['email'])){
+	/* Tworzymy szkielet wysyłanej wiadomo¶ci */
+	$adresemail='scyet.3@gmail.com'; /* Wpisz swój adres e-mail */
+	/* Wybierz kodowanie znaków usuwaj±c // */
+	$charset = 'iso-8859-2';
+	//$charset = 'utf-8';
+	$wiadomosc="Od: $_POST[imienazwisko] ($_POST[email])\n\n$_POST[trescwiadomosci]";
+	$nadawca="From: $_POST[email]";
+	@mail($adresemail, "Formularz kontaktowy z www.lukasskoda.cba.pl", "$wiadomosc", "$nadawca");
+	echo "<span style=\"color: #00D800; font-weight: bold; \">Dziękujemy, formularz został wysłany.</span>";
+	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Wprowadzony adres E-Mail jest niepoprawny!!!</span>"; }
+	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Cofnij i wypełnij wszystkie pola formularza!!!</span>"; }
+	?>
+		</div>
+</main>
 <div id="stopka">
 <p>Autorzy projektu: Łukasz Zieliński i Tatiana Rudskaya</p>
 </div>
@@ -127,5 +129,5 @@
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+ </body>
 </html>
