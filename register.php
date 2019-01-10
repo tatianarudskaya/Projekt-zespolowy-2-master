@@ -288,7 +288,7 @@ if ($_SESSION['zalogowany']==false)
 			}
 		?>" name="haslo2" /><br />
 		
-		<p>Regulamin znajduje się <a target="_blank" href="regulamin.html">tutaj</a></p> 
+		<p>Regulamin znajduje się <a target="_blank" href="regulamin.php">tutaj</a></p> 
 		
 		<label>
 			<input type="checkbox" name="regulamin" <?php

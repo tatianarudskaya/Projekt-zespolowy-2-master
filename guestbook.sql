@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Хост:                         127.0.0.1
--- Версия сервера:               5.6.38 - MySQL Community Server (GPL)
+-- Версия сервера:               5.5.53 - MySQL Community Server (GPL)
 -- Операционная система:         Win32
--- HeidiSQL Версия:              9.5.0.5196
+-- HeidiSQL Версия:              9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -24,9 +24,15 @@ CREATE TABLE IF NOT EXISTS `guestbook` (
   `email` varchar(250) NOT NULL,
   `comment` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Экспортируемые данные не выделены.
+-- Дамп данных таблицы guestbook.guestbook: ~2 rows (приблизительно)
+/*!40000 ALTER TABLE `guestbook` DISABLE KEYS */;
+INSERT INTO `guestbook` (`id`, `date_time`, `name`, `email`, `comment`) VALUES
+	(7, '2019-01-11 00:15:47', '69698', 'lasdhjldjas', 'wdfwfe;hhkllhk'),
+	(8, '2019-01-11 00:15:57', 'test', 'test', 'testetstetets');
+/*!40000 ALTER TABLE `guestbook` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

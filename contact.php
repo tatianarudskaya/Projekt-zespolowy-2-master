@@ -65,15 +65,15 @@ if ($_SESSION['zalogowany']==false)
 				</ul>
 <li class='active' style='float:right;'>
 				  <?php 
-  if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+  if($_SESSION['zalogowany']==true)
     { 
       echo $_SESSION["user"];
+	  echo ", ";
       echo '<a href="logout.php"><span>Logout</span></a></li>';
     }
-  elseif((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==false))
+  elseif($_SESSION['zalogowany']==false)
     {
       echo '<a href="log.php"><span>Login</span></a></li>';
-	  
     }
   ?>
 				
@@ -109,6 +109,7 @@ if ($_SESSION['zalogowany']==false)
 	<input type="submit" name="submit" value="Wyślij formularz"/> 
 	<input type="reset" value="Wyczyść"/>
 	</form>
+	
 <?php
 	/*sprawdzenie wypełnienia wszystkich pól*/
 	}elseif(!empty($_POST['imienazwisko']) && !empty($_POST['email']) && !empty($_POST['trescwiadomosci'])){
