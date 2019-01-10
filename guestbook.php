@@ -20,6 +20,10 @@ while ($row = mysql_fetch_assoc($sql_result)) {
 	echo "<span>posted on ".$row["date_time"]."</span>";
 	echo "<p>".stripslashes(nl2br($row["comment"]))."</p></div>";
 }
+$email = test_input($_POST["email"]);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	$emailErr = "Invalid email format"; 
+}
 ?>
 </div>
 <form id="GuestBookFrm" name="GuestBookFrm" onsubmit="return false;">
@@ -35,7 +39,10 @@ while ($row = mysql_fetch_assoc($sql_result)) {
   </tr>
   <tr>
     <td>Email</td>
-    <td><input type="text" name="email" id="email" /></td>
+    <td>
+		<input type="text" name="email" id="email" />
+
+	</td>
   </tr>
   <tr>
     <td>Comment</td>
