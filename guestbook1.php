@@ -1,3 +1,24 @@
+<?php
+session_start(); // Right at the top of your script
+
+if ($_SESSION['zalogowany']==false)
+	{
+		$_SESSION['zalogowany']=false;
+	}
+
+?>
+
+<?php
+
+	
+	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+	{
+		header('Location: guestbook2.php');
+		exit();
+	}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -26,9 +47,7 @@
 
 <div class="containet"> 
 	
-    <!-- <div id="naglowek">
-		<a class="h"> Strona <span> - jakiś napis</span></a>
-	</div> -->
+    
   	<header>
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
@@ -47,7 +66,7 @@
 					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="guestbook.html"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="guestbook2.php"> Recenzje </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>	
 					<!--
@@ -63,8 +82,23 @@
 						</div>
 					</li>-->
 				</ul>
+			<li class='active' style='float:right;'>
+				  <?php 
+  if($_SESSION['zalogowany']==true)
+    { 
+      echo $_SESSION["user"];
+	  echo ", ";
+      echo '<a href="logout.php"><span>Logout</span></a></li>';
+    }
+  elseif($_SESSION['zalogowany']==false)
+    {
+      echo '<a href="log.php"><span>Login</span></a></li>';
+    }
+  ?>
+				
 			</div>
 		</nav>
+	
 	</header>
 
 	<main>
@@ -73,7 +107,7 @@
 	<div id="GuestBook"> </div>
 
 
-<script language="javascript" src="js/guestbook.js"></script>
+<script language="javascript" src="js/guestbook1.js"></script>
 
 <!-- Przyciski do przesuwania w gólre i w dół strony --> 
 <a href="#" class="to-top"><i class="fa fa-chevron-up"></i></a> 
