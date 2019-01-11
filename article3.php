@@ -1,6 +1,5 @@
 ﻿
 <?php
-session_start(); // Right at the top of your script
 
 if ($_SESSION['zalogowany']==false)
 	{

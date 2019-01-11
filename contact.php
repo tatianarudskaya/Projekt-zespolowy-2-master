@@ -1,5 +1,4 @@
 ﻿<?php
-session_start(); // Right at the top of your script
 
 if ($_SESSION['zalogowany']==false)
 	{
@@ -53,7 +52,7 @@ if ($_SESSION['zalogowany']==false)
 					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="guestbook2.php1"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="guestbook2.php"> Recenzje </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>
 					
