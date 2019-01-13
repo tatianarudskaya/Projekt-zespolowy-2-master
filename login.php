@@ -37,15 +37,15 @@
 					$_SESSION['zalogowany'] = true;
 					$_SESSION['id'] = $wiersz['id'];
 					$_SESSION['user'] = $wiersz['user'];
-					$_SESSION['drewno'] = $wiersz['drewno'];
-					$_SESSION['kamien'] = $wiersz['kamien'];
-					$_SESSION['zboze'] = $wiersz['zboze'];
+					$_SESSION['miasto'] = $wiersz['miasto'];
+					$_SESSION['data'] = $wiersz['data'];
+					$_SESSION['plec'] = $wiersz['plec'];
 					$_SESSION['email'] = $wiersz['email'];
-					$_SESSION['dnipremium'] = $wiersz['dnipremium'];
+					$_SESSION['ostatnie'] = $wiersz['ostatnie'];
 					
 					unset($_SESSION['blad']);
 					$rezultat->free_result();
-					header('Location: index.html');
+					header('Location: index.php');
 				}
 				else 
 				{
@@ -66,3 +66,4 @@
 	}
 	
 ?>
+

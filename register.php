@@ -1,9 +1,17 @@
+<?php
+session_start(); // Right at the top of your script
 
+if ($_SESSION['zalogowany']==false)
+	{
+		$_SESSION['zalogowany']=false;
+	}
+
+?>
 
 
 <?php
 
-	session_start();
+	
 	
 	if (isset($_POST['email']))
 	{
@@ -113,7 +121,7 @@
 					if ($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$nick', '$haslo_hash', '$email', 100, 100, 100, 14)"))
 					{
 						$_SESSION['udanarejestracja']=true;
-						header('Location: index.html');
+						header('Location: index.php');
 					}
 					else
 					{
@@ -168,7 +176,7 @@
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
 		<!-- Logo -->
-			<a class="navbar-brand" href="index.html"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
+			<a class="navbar-brand" href="index.php"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
 		<!-- Przycisk menu w małym oknie -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
@@ -179,25 +187,38 @@
 				<!-- Rozwijająca się część -->
 					
 					<!-- zwykła Reszta menu -->
-					<li class="nav-item"> <a class="nav-link" href="training.html"> Trening </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="articles.html"> Artykuły </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="guestbook.html"> Recenzje </a> </li>
-					
-					
+					<li class="nav-item"> <a class="nav-link" href="guestbook2.php1"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>	
+					<!--
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Konto </a>
 						<div class="dropdown-menu" aria-labelledby="submenu">
 							<a class="dropdown-item" href="regulamin.html"> Regulamin </a>
 							<a class="dropdown-item" href="register.php"> Załóż Konto </a>
 							<a class="dropdown-item" href="log.php"> Zaloguj się </a>
-							<!-- <div class="dropdown-divider"></div>-->
+							 <div class="dropdown-divider"></div>
 							
 							<a class="dropdown-item" href="#"> Coś 4 </a>
 						</div>
-					</li>
+					</li>-->
 				</ul>
-			
+			<li class='active' style='float:right;'>
+				  <?php 
+  if($_SESSION['zalogowany']==true)
+    { 
+      echo $_SESSION["user"];
+	  echo ", ";
+      echo '<a href="logout.php"><span>Logout</span></a></li>';
+    }
+  elseif($_SESSION['zalogowany']==false)
+    {
+      echo '<a href="log.php"><span>Login</span></a></li>';
+    }
+  ?>
 				
 			</div>
 		</nav>
@@ -267,7 +288,7 @@
 			}
 		?>" name="haslo2" /><br />
 		
-		<p>Regulamin znajduje się <a target="_blank" href="regulamin.html">na tej stronie</a></p> 
+		<p>Regulamin znajduje się <a target="_blank" href="regulamin.php">tutaj</a></p> 
 		
 		<label>
 			<input type="checkbox" name="regulamin" <?php
@@ -276,7 +297,7 @@
 				echo "checked";
 				unset($_SESSION['fr_regulamin']);
 			}
-				?>/> Potwierdzam, że zapoznałem się z regulaminem
+				?>/> Potwierdzam, że zapoznanie się z regulaminem
 		</label>
 		
 		<?php

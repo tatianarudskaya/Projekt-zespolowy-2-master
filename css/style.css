@@ -204,3 +204,24 @@ ul > li > a:hover{
 	color: #151f28; 
 	background: #fff; 
 }
+.active{
+	list-style-type:none;
+	padding-right: 2px;
+}
+.active > a {
+	
+	position:static;
+	padding:3px;
+	
+	border-style: dashed;
+	border-radius: 10px;
+	border-width: 1px;
+}
+
+.active > a:hover{
+	background-color:white;
+	border-style: double;
+	padding:3px;
+	border-radius: 10px;
+	box-shadow: 0 0 3px #15283c;
+}

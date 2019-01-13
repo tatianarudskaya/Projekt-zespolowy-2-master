@@ -1,9 +1,19 @@
-﻿<!DOCTYPE html>
+<?php
 
-<html lang="en">
-<head>
+session_start();
+if ($_SESSION['zalogowany']==false)
+	{
+		$_SESSION['zalogowany']=false;
+	}
+
+?>
+<!doctype html>
+
+<html lang="en" dir="ltr">
+  <head>
+  
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8 ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
@@ -16,23 +26,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/timer.js"></script>
 	<script type="text/javascript" src="js/button.js"></script>
-	<script src="text/javascript"  src="js/bootstrap.bundle.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	
-  <title>Contact</title>
+  
+  <title>Kontakt</title>
   </head>
 
 <body onload="odliczanie();">
   <div class="containet"> 
 	<a class="ob_link" href="index.html" title="Tytuł">
 	</a>
-    <!-- <div id="naglowek">
-		<a class="h"> Strona <span> - jakiś napis</span></a>
-	</div> -->
+
   	<header>
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
 		<!-- Logo -->
-			<a class="navbar-brand" href="index.html"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
+			<a class="navbar-brand" href="index.php"><img src="Obrazki/vk.png" width="25" height="25" class="d-inline-block mr-1 align-bottom" alt=""> b17</a>
 		<!-- Przycisk menu w małym oknie -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
@@ -41,27 +48,34 @@
 			<div class="collapse navbar-collapse" id="mainmenu">
 				<ul class="navbar-nav mr-auto">
 				<!-- Rozwijająca się część -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Rozwija się </a>
-						<div class="dropdown-menu" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#"> Coś 1 </a>
-							<a class="dropdown-item" href="#"> Coś 2 </a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#"> Coś 3 </a>
-							<a class="dropdown-item" href="#"> Coś 4 </a>
-						</div>
-					</li>
+					
 					<!-- zwykła Reszta menu -->
-					<li class="nav-item"><a class="nav-link" href="training.html"> Trening </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="articles.html"> Artykuły </a> </li>
-					
+					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="guestbook.html"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="guestbook2.php"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>
 					
-					<li class="nav-item"> <a class="nav-link" href="#" > Rejestracja </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="#"> Logowanie </a> </li>
+					
+
+					
+
+
 				</ul>
-				
+			<li class='active' style='float:right;'>
+				  <?php 
+  if($_SESSION['zalogowany']==true)
+    { 
+      echo $_SESSION["user"];
+	  echo ", ";
+      echo '<a href="logout.php"><span>Logout</span></a></li>';
+    }
+  elseif($_SESSION['zalogowany']==false)
+    {
+      echo '<a href="log.php"><span>Login</span></a></li>';
+    }
+  ?>
 				
 			</div>	
 		</nav>
@@ -84,8 +98,8 @@
 			<p><b> Masz jakieś pytania? Napisz:</b> </p>
 <?php
 	if(empty($_POST['submit'])){
-	?>
-	<form action="contact.php" method="post"> <!--nazwa strony na której znajduje się formularz-->
+?>	
+	<form action="contact.php" method="post"> <!--nazwa strony na ktĂłrej znajduje siÄ™ formularz-->
 	Imię i Nazwisko:<br />
 	<input type="text" name="imienazwisko" style="width:300px;"/><br />
 	E-Mail:<br />
@@ -96,28 +110,34 @@
 	<input type="reset" value="Wyczyść"/>
 	</form>
 <?php
-	/*sprawdzenie wypełnienia wszystkich pól*/
+	/*sprawdzenie wypeĹ‚nienia wszystkich pĂłl*/
 	}elseif(!empty($_POST['imienazwisko']) && !empty($_POST['email']) && !empty($_POST['trescwiadomosci'])){
-	/* Funkcja sprawdzaj±ca poprawno¶ć E-Maila */
+	/* Funkcja sprawdzajÂ±ca poprawnoÂ¶Ä‡ E-Maila */
 	function SprawdzEmail($email) {
-	if (!eregi("^[_.0-9a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$" , $email)){
-	return false;
-	}
+	$pattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
+/*	if (preg_match("^[_.0-9a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$" , $email)){*/
+
+	if (preg_match($pattern, $email) === 1){
 	return true;
 	}
+	
+	return false;
+	}
 	if(SprawdzEmail($_POST['email'])){
-	/* Tworzymy szkielet wysyłanej wiadomo¶ci */
-	$adresemail='scyet.3@gmail.com'; /* Wpisz swój adres e-mail */
-	/* Wybierz kodowanie znaków usuwaj±c // */
+	/* Tworzymy szkielet wysyĹ‚anej wiadomoÂ¶ci */
+	$adresemail='fatoush3@gmail.com'; /* Wpisz swĂłj adres e-mail */
+	/* Wybierz kodowanie znakĂłw usuwajÂ±c // */
 	$charset = 'iso-8859-2';
 	//$charset = 'utf-8';
 	$wiadomosc="Od: $_POST[imienazwisko] ($_POST[email])\n\n$_POST[trescwiadomosci]";
 	$nadawca="From: $_POST[email]";
-	@mail($adresemail, "Formularz kontaktowy z www.lukasskoda.cba.pl", "$wiadomosc", "$nadawca");
-	echo "<span style=\"color: #00D800; font-weight: bold; \">Dziękujemy, formularz został wysłany.</span>";
+	@mail($adresemail, "Formularz kontaktowy z strony na PRojekt Zespołowy Styczeń 2019!", "$wiadomosc", "$nadawca");
+	echo "<span style=\"color: #00D800; font-weight: bold; \">Dziękujemy, formularz został‚ wysłany.</span>";
 	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Wprowadzony adres E-Mail jest niepoprawny!!!</span>"; }
 	}else{ echo "<span style=\"color: #FF0000; text-align: center; font-weight: bold;\">Cofnij i wypełnij wszystkie pola formularza!!!</span>"; }
 	?>
+
+
 		</div>
 </main>
 <div id="stopka">
