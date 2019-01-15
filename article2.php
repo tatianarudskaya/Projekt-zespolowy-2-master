@@ -1,5 +1,4 @@
 <?php
-session_start(); // Right at the top of your script
 
 if ($_SESSION['zalogowany']==false)
 	{
@@ -24,8 +23,8 @@ if ($_SESSION['zalogowany']==false)
 	
 	<!-- JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="timer.js"></script>
-	<script type="text/javascript" src="button.js"></script>
+	<script type="text/javascript" src="js/timer.js"></script>
+	<script type="text/javascript" src="js/button.js"></script>
 	<script src="text/javascript"  src="js/bootstrap.bundle.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
   <title>Articles</title>
@@ -56,7 +55,7 @@ if ($_SESSION['zalogowany']==false)
 					<li class="nav-item"> <a class="nav-link" href="training.php"> Trening </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="articles.php"> Artykuły </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="contact.php"> Kontakt </a> </li>
-					<li class="nav-item"> <a class="nav-link" href="guestbook2.php1"> Recenzje </a> </li>
+					<li class="nav-item"> <a class="nav-link" href="guestbook2.php"> Recenzje </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="regulamin.php"> Regulamin </a> </li>
 					<li class="nav-item"> <a class="nav-link" href="register.php"> Rejestracja </a> </li>	
 					<!--
@@ -127,6 +126,8 @@ if ($_SESSION['zalogowany']==false)
 			<br>И тогда у вас заискрится взгляд, а улыбка счастья и любви засияет на вашем лице, и вы преобразитесь прямо на глазах... Вы сами станете источником любви, радости, света и силы. Вы заживете в гармонии с собой. Вот увидите, у вас все получится! Вы станете самыми красивыми на свете. Надо просто быть в ладу с самими собой. И с собой, и с окружающим миром.
 			<br>Совершенствуйтесь и ищите себя! Ведь только разобравшись в самих себе, мы сможем принять себя. Любить себя и наслаждаться радостью жизни так же естественно для человека, как полет птицы в небе. Этот мир для вас, эта жизнь для вас, а значит, и любовь - для вас!
 	
+	<p><br><a href="articles.php">kliknij link, aby powrócić do poprzedniej strony </a>
+			</p>
 		</div>
 				
   </main>
