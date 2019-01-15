@@ -3,7 +3,7 @@
 /* Define MySQL connection details and database table name */ 
 $SETTINGS["hostname"]='localhost';
 $SETTINGS["mysql_user"]='root';
-$SETTINGS["mysql_pass"]='';
+$SETTINGS["mysql_pass"]='root';
 $SETTINGS["mysql_database"]='guestbook';
 $SETTINGS["data_table"]='guestbook';
 
