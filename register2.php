@@ -1,11 +1,9 @@
 <?php
+session_start(); // Right at the top of your script
 
-	session_start();
-	
-	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+if ($_SESSION['zalogowany']==false)
 	{
-		header('Location: index.php');
-		exit();
+		$_SESSION['zalogowany']=false;
 	}
 
 ?>
@@ -36,9 +34,7 @@
   <body onload="odliczanie();">
   <div class="containet"> 
 	
-    <!-- <div id="naglowek">
-		<a class="h"> Strona <span> - jakiś napis</span></a>
-	</div> -->
+    
   	<header>
 	<!-- Menu -->
 		<nav class="navbar navbar-light navbar-expand-lg">
@@ -94,24 +90,13 @@
 
 	<main>
 	<div id="srodek">
-		<h2>Logowanie</h2><br>
 <body>
-	<p>Nie masz konta? <a href="register.php">Zarejestruj się za darmo!</a></p> 
-	<br /> 
-	
-	<form action="logIN.php" method="post">
-	
-		Login: <br /> <input type="text" name="login" /> <br />
-		Hasło: <br /> <input type="password" name="haslo" /> <br /><br />
-		<input type="submit" value="Zaloguj się" />
-	
-	</form>
-	
-<?php
-	if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
-?>
-	</div>  
+	<font size="5" color="red">Dziękujemy za dokonanie rejestracji.</font><br /><br />
+	<p>Możesz się <a href="log.php">zalogować.</a></p> 
+	<p>Powrót do <a href="index.php">strony głownej.</a></p> 
+		<br />
 		
+	
  </main>
 	<div id="stopka">
 	<p>Autorzy projektu: Łukasz Zieliński i Tatiana Rudskaya</p>

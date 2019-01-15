@@ -116,12 +116,15 @@ if ($_SESSION['zalogowany']==false)
 				
 				if ($wszystko_OK==true)
 				{
-					//Hurra, wszystkie testy zaliczone, dodajemy gracza do bazy
+					//Hurra, wszystkie testy zaliczone
 					
 					if ($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$nick', '$haslo_hash', '$email', 100, 100, 100, 14)"))
 					{
 						$_SESSION['udanarejestracja']=true;
-						header('Location: index.php');
+						
+						 echo "<script type=\"text/javascript\">
+							window.setTimeout(\"window.location.replace('register2.php');\",2500);
+								</script>";
 					}
 					else
 					{
@@ -312,8 +315,17 @@ if ($_SESSION['zalogowany']==false)
 		
 		<br />
 		
-		<input type="submit" value="Zarejestruj się" />
+		<input type="submit" name="submit" value="Zarejestruj się" /></br>
 		
+		
+		<?php
+		if ($wszystko_OK==true)
+				{
+						#echo '<input type="reset">';
+						
+						echo "<span style=\"color: #00D800; font-weight: bold; \">Rejestracja Udana.</span>";
+				}
+				?>
 	</form>
 	
  </main>
