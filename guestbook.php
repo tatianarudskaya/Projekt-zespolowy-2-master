@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 error_reporting(0);
 include("config.php");
 
@@ -23,33 +23,19 @@ while ($row = mysql_fetch_assoc($sql_result)) {
 ?>
 </div>
 
-  
-<form id="GuestBookFrm" name="GuestBookFrm" onsubmit="return false;">
-<table width="100%" border="0" cellspacing="0" cellpadding="5">
-  <tr>
-    <td colspan="2"><strong>Add your comment</strong></td>
-    </tr>
-  <tr>
-    <td>Name</td>
-    <td><label>
-      <input type="text" name="your_name" id="your_name" />
-    </label></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><input type="text" name="email" id="email" /></td>
-  </tr>
-  <tr>
-    <td>Comment</td>
-    <td><label>
-      <textarea name="comment" id="comment" rows="5"></textarea>
-    </label></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><label>
-      <input type="button" name="button" id="button" value="Submit" onclick="SubmitComment()" />
-    </label></td>
-  </tr>
-</table>
-</form>
+<?php
+	if($_SESSION['zalogowany']==true)
+    { 
+      echo '<form id="GuestBookFrm" name="GuestBookFrm" onsubmit="return false;">';
+      echo '<table width="100%" border="0" cellspacing="0" cellpadding="5">';
+      echo '<tr> <td colspan="2"><strong>Add your comment</strong> </td></tr>';
+      echo ' <tr> <td>Name</td>';
+      echo    '<td> <label><input type="text" name="your_name" id="your_name" /></label> </td></tr>';
+      echo  '<tr> <td>Email</td>';
+      echo    '<td> <input type="text" name="email" id="email" /> </td></tr>';
+      echo  '<tr><td>Comment</td>';
+      echo    '<td><label><textarea name="comment" id="comment" rows="5"></textarea></label></td></tr>';
+      echo ' <tr><td>&nbsp;</td>';
+      echo    '<td><label><input type="button" name="button" id="button" value="Submit" onclick="SubmitComment()" /></label></td></tr></table></form>';
+    }
+	?>

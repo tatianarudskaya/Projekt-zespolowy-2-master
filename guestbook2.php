@@ -1,14 +1,12 @@
 <?php
-session_start(); // Right at the top of your script
 
+session_start();
 if ($_SESSION['zalogowany']==false)
 	{
-		header('Location: guestbook3.php');
-		exit();
+		$_SESSION['zalogowany']=false;
 	}
 
 ?>
-
 
 <!DOCTYPE html>
 
@@ -73,8 +71,8 @@ if ($_SESSION['zalogowany']==false)
 						</div>
 					</li>-->
 				</ul>
-			<li class='active' style='float:right;'>
-				  <?php 
+<li class='active' style='float:right;'>
+	 <?php 
   if($_SESSION['zalogowany']==true)
     { 
       echo $_SESSION["user"];
@@ -97,8 +95,7 @@ if ($_SESSION['zalogowany']==false)
 		<h2>Comment page</h2><br>
 	<div id="GuestBook"> </div>
 
-
-<script language="javascript" src="js/guestbook.js"></script>
+<script language="javascript" src="js/guestbook.js"></script>'
 
 <!-- Przyciski do przesuwania w gólre i w dół strony --> 
 <a href="#" class="to-top"><i class="fa fa-chevron-up"></i></a> 
